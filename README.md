@@ -15,6 +15,7 @@ This package offers monitoring like [Laravel Horizon](https://laravel.com/docs/h
 - Store additional data for a job monitoring
 - In this fork:
     - Show `time_elapsed` with sub-second precision
+    - Remove old and unused monitoring data (see `delete_old_items_after_days`)
 
 ## Installation
 
