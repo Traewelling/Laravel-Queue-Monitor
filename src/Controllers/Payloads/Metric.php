@@ -10,12 +10,12 @@ final class Metric
     public $title;
 
     /**
-     * @var int
+     * @var float
      */
     public $value;
 
     /**
-     * @var int
+     * @var float
      */
     public $previousValue;
 
@@ -24,12 +24,13 @@ final class Metric
      */
     public $format;
 
-    public function __construct(string $title, int $value = 0, int $previousValue = null, string $format = '%d')
+    public function __construct(string $title, float $value = 0, float $previousValue = null, string $format = '%d')
     {
         $this->title = $title;
         $this->value = $value;
         $this->previousValue = $previousValue;
         $this->format = $format;
+        $this->rendered = $this->format($this->value);
     }
 
     public function hasChanged(): bool
@@ -42,7 +43,7 @@ final class Metric
         return $this->value > $this->previousValue;
     }
 
-    public function format(int $value): string
+    public function format(float $value): string
     {
         return sprintf($this->format, $value);
     }
