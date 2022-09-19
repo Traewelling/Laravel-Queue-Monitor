@@ -9,6 +9,7 @@ use Illuminate\Queue\Events\JobProcessing;
 use Illuminate\Queue\QueueManager;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\ServiceProvider;
+use Traewelling\QueueMonitor\Console\Commands\CleanUpOldMonitors;
 use Traewelling\QueueMonitor\Models\Monitor;
 use Traewelling\QueueMonitor\Routes\QueueMonitorRoutes;
 use Traewelling\QueueMonitor\Services\QueueMonitor;
@@ -28,6 +29,10 @@ class QueueMonitorProvider extends ServiceProvider
                     __DIR__ . '/../../migrations'
                 );
             }
+
+            $this->commands([
+                CleanUpOldMonitors::class,
+            ]);
 
             $this->publishes([
                 __DIR__ . '/../../config/queue-monitor.php' => config_path('queue-monitor.php'),
