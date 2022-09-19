@@ -1,6 +1,6 @@
 <?php
 
-namespace romanzipp\QueueMonitor\Tests\Support;
+namespace Traewelling\QueueMonitor\Tests\Support;
 
 use Exception;
 

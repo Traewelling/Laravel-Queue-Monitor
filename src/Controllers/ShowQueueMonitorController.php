@@ -1,16 +1,16 @@
 <?php
 
-namespace romanzipp\QueueMonitor\Controllers;
+namespace Traewelling\QueueMonitor\Controllers;
 
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Validation\Rule;
-use romanzipp\QueueMonitor\Controllers\Payloads\Metric;
-use romanzipp\QueueMonitor\Controllers\Payloads\Metrics;
-use romanzipp\QueueMonitor\Models\Contracts\MonitorContract;
-use romanzipp\QueueMonitor\Services\QueueMonitor;
+use Traewelling\QueueMonitor\Controllers\Payloads\Metric;
+use Traewelling\QueueMonitor\Controllers\Payloads\Metrics;
+use Traewelling\QueueMonitor\Models\Contracts\MonitorContract;
+use Traewelling\QueueMonitor\Services\QueueMonitor;
 
 class ShowQueueMonitorController
 {

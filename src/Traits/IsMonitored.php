@@ -1,9 +1,9 @@
 <?php
 
-namespace romanzipp\QueueMonitor\Traits;
+namespace Traewelling\QueueMonitor\Traits;
 
-use romanzipp\QueueMonitor\Models\Contracts\MonitorContract;
-use romanzipp\QueueMonitor\Services\QueueMonitor;
+use Traewelling\QueueMonitor\Models\Contracts\MonitorContract;
+use Traewelling\QueueMonitor\Services\QueueMonitor;
 
 /**
  * @mixin \Illuminate\Queue\InteractsWithQueue

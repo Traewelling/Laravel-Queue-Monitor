@@ -1,8 +1,8 @@
 <?php
 
-namespace romanzipp\QueueMonitor\Tests\Support;
+namespace Traewelling\QueueMonitor\Tests\Support;
 
-use romanzipp\QueueMonitor\Traits\IsMonitored;
+use Traewelling\QueueMonitor\Traits\IsMonitored;
 
 class MonitoredJobWithMergedData extends BaseJob
 {

@@ -26,7 +26,7 @@
  * THE SOFTWARE.
  */
 
-namespace romanzipp\QueueMonitor\Services;
+namespace Traewelling\QueueMonitor\Services;
 
 class ClassUses
 {

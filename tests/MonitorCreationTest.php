@@ -1,15 +1,15 @@
 <?php
 
-namespace romanzipp\QueueMonitor\Tests;
+namespace Traewelling\QueueMonitor\Tests;
 
-use romanzipp\QueueMonitor\Models\Monitor;
-use romanzipp\QueueMonitor\Tests\Support\MonitoredBroadcastingJob;
-use romanzipp\QueueMonitor\Tests\Support\MonitoredExtendingJob;
-use romanzipp\QueueMonitor\Tests\Support\MonitoredJob;
-use romanzipp\QueueMonitor\Tests\Support\MonitoredJobWithArguments;
-use romanzipp\QueueMonitor\Tests\Support\MonitoredPartiallyKeptFailingJob;
-use romanzipp\QueueMonitor\Tests\Support\MonitoredPartiallyKeptJob;
-use romanzipp\QueueMonitor\Tests\Support\UnmonitoredJob;
+use Traewelling\QueueMonitor\Models\Monitor;
+use Traewelling\QueueMonitor\Tests\Support\MonitoredBroadcastingJob;
+use Traewelling\QueueMonitor\Tests\Support\MonitoredExtendingJob;
+use Traewelling\QueueMonitor\Tests\Support\MonitoredJob;
+use Traewelling\QueueMonitor\Tests\Support\MonitoredJobWithArguments;
+use Traewelling\QueueMonitor\Tests\Support\MonitoredPartiallyKeptFailingJob;
+use Traewelling\QueueMonitor\Tests\Support\MonitoredPartiallyKeptJob;
+use Traewelling\QueueMonitor\Tests\Support\UnmonitoredJob;
 
 class MonitorCreationTest extends TestCase
 {

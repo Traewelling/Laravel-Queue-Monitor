@@ -1,14 +1,14 @@
 <?php
 
-namespace romanzipp\QueueMonitor\Tests;
+namespace Traewelling\QueueMonitor\Tests;
 
-use romanzipp\QueueMonitor\Models\Monitor;
-use romanzipp\QueueMonitor\Tests\Support\MonitoredJobWithData;
-use romanzipp\QueueMonitor\Tests\Support\MonitoredJobWithMergedData;
-use romanzipp\QueueMonitor\Tests\Support\MonitoredJobWithMergedDataConflicting;
-use romanzipp\QueueMonitor\Tests\Support\MonitoredJobWithProgress;
-use romanzipp\QueueMonitor\Tests\Support\MonitoredJobWithProgressCooldown;
-use romanzipp\QueueMonitor\Tests\Support\MonitoredJobWithProgressCooldownMockingTime;
+use Traewelling\QueueMonitor\Models\Monitor;
+use Traewelling\QueueMonitor\Tests\Support\MonitoredJobWithData;
+use Traewelling\QueueMonitor\Tests\Support\MonitoredJobWithMergedData;
+use Traewelling\QueueMonitor\Tests\Support\MonitoredJobWithMergedDataConflicting;
+use Traewelling\QueueMonitor\Tests\Support\MonitoredJobWithProgress;
+use Traewelling\QueueMonitor\Tests\Support\MonitoredJobWithProgressCooldown;
+use Traewelling\QueueMonitor\Tests\Support\MonitoredJobWithProgressCooldownMockingTime;
 
 class MonitorAttributesTest extends TestCase
 {

@@ -1,11 +1,11 @@
 <?php
 
-namespace romanzipp\QueueMonitor\Tests;
+namespace Traewelling\QueueMonitor\Tests;
 
-use romanzipp\QueueMonitor\Models\Monitor;
-use romanzipp\QueueMonitor\Tests\Support\IntentionallyFailedException;
-use romanzipp\QueueMonitor\Tests\Support\MonitoredFailingJob;
-use romanzipp\QueueMonitor\Tests\Support\MonitoredFailingJobWithHugeExceptionMessage;
+use Traewelling\QueueMonitor\Models\Monitor;
+use Traewelling\QueueMonitor\Tests\Support\IntentionallyFailedException;
+use Traewelling\QueueMonitor\Tests\Support\MonitoredFailingJob;
+use Traewelling\QueueMonitor\Tests\Support\MonitoredFailingJobWithHugeExceptionMessage;
 
 class MonitorStateHandlingTest extends TestCase
 {

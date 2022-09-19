@@ -1,9 +1,8 @@
 # Laravel Queue Monitor
 
-[![Latest Stable Version](https://img.shields.io/packagist/v/romanzipp/laravel-queue-monitor.svg?style=flat-square)](https://packagist.org/packages/romanzipp/laravel-queue-monitor)
-[![Total Downloads](https://img.shields.io/packagist/dt/romanzipp/laravel-queue-monitor.svg?style=flat-square)](https://packagist.org/packages/romanzipp/laravel-queue-monitor)
-[![License](https://img.shields.io/packagist/l/romanzipp/laravel-queue-monitor.svg?style=flat-square)](https://packagist.org/packages/romanzipp/laravel-queue-monitor)
-[![GitHub Build Status](https://img.shields.io/github/workflow/status/romanzipp/Laravel-Queue-Monitor/Tests?style=flat-square)](https://github.com/romanzipp/Laravel-Queue-Monitor/actions)
+[![Latest Stable Version](https://img.shields.io/packagist/v/traewelling/laravel-queue-monitor.svg?style=flat-square)](https://packagist.org/packages/traewelling/laravel-queue-monitor)
+[![Total Downloads](https://img.shields.io/packagist/dt/traewelling/laravel-queue-monitor.svg?style=flat-square)](https://packagist.org/packages/traewelling/laravel-queue-monitor)
+[![GitHub Build Status](https://img.shields.io/github/workflow/status/traewelling/Laravel-Queue-Monitor/Tests?style=flat-square)](https://github.com/traewelling/Laravel-Queue-Monitor/actions)
 
 This package offers monitoring like [Laravel Horizon](https://laravel.com/docs/horizon) for database queue.
 
@@ -14,11 +13,13 @@ This package offers monitoring like [Laravel Horizon](https://laravel.com/docs/h
 - Monitor job progress
 - Get an estimated time remaining for a job
 - Store additional data for a job monitoring
+- In this fork:
+    - Show `time_elapsed` with sub-second precision
 
 ## Installation
 
 ```
-composer require romanzipp/laravel-queue-monitor
+composer require traewelling/laravel-queue-monitor
 ```
 
 ## Configuration
@@ -26,7 +27,7 @@ composer require romanzipp/laravel-queue-monitor
 Copy configuration & migration to your project:
 
 ```
-php artisan vendor:publish --provider="romanzipp\QueueMonitor\Providers\QueueMonitorProvider"  --tag=config --tag=migrations
+php artisan vendor:publish --provider="Traewelling\QueueMonitor\Providers\QueueMonitorProvider"  --tag=config --tag=migrations
 ```
 
 Migrate the Queue Monitoring table. The table name can be configured in the config file or via the published migration.
@@ -37,7 +38,7 @@ php artisan migrate
 
 ## Usage
 
-To monitor a job, simply add the `romanzipp\QueueMonitor\Traits\IsMonitored` Trait.
+To monitor a job, simply add the `Traewelling\QueueMonitor\Traits\IsMonitored` Trait.
 
 ```php
 use Illuminate\Bus\Queueable;
@@ -45,7 +46,7 @@ use Illuminate\Queue\SerializesModels;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Foundation\Bus\Dispatchable;
-use romanzipp\QueueMonitor\Traits\IsMonitored; // <---
+use Traewelling\QueueMonitor\Traits\IsMonitored; // <---
 
 class ExampleJob implements ShouldQueue
 {
@@ -75,9 +76,9 @@ Route::prefix('jobs')->group(function () {
 | ----- | ------------------- |
 | `/`   | Show the jobs table |
 
-See the [full configuration file](https://github.com/romanzipp/Laravel-Queue-Monitor/blob/master/config/queue-monitor.php) for more information.
+See the [full configuration file](https://github.com/traewelling/Laravel-Queue-Monitor/blob/master/config/queue-monitor.php) for more information.
 
-![Preview](https://raw.githubusercontent.com/romanzipp/Laravel-Queue-Monitor/master/preview.png)
+![Preview](https://raw.githubusercontent.com/traewelling/Laravel-Queue-Monitor/master/preview.png)
 
 
 ## Extended usage
@@ -88,7 +89,7 @@ You can set a **progress value** (0-100) to get an estimation of a job progressi
 
 ```php
 use Illuminate\Contracts\Queue\ShouldQueue;
-use romanzipp\QueueMonitor\Traits\IsMonitored;
+use traewelling\QueueMonitor\Traits\IsMonitored;
 
 class ExampleJob implements ShouldQueue
 {
@@ -118,7 +119,7 @@ This example job loops through a large amount of users and updates it's progress
 ```php
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Database\Eloquent\Collection;
-use romanzipp\QueueMonitor\Traits\IsMonitored;
+use Traewelling\QueueMonitor\Traits\IsMonitored;
 
 class ChunkJob implements ShouldQueue
 {
@@ -149,7 +150,7 @@ To avoid flooding the database with rapidly repeating update queries, you can se
 
 ```php
 use Illuminate\Contracts\Queue\ShouldQueue;
-use romanzipp\QueueMonitor\Traits\IsMonitored;
+use Traewelling\QueueMonitor\Traits\IsMonitored;
 
 class LazyJob implements ShouldQueue
 {
@@ -168,7 +169,7 @@ This package also allows setting custom data in array syntax on the monitoring m
 
 ```php
 use Illuminate\Contracts\Queue\ShouldQueue;
-use romanzipp\QueueMonitor\Traits\IsMonitored;
+use Traewelling\QueueMonitor\Traits\IsMonitored;
 
 class CustomDataJob implements ShouldQueue
 {
@@ -204,7 +205,7 @@ You can override the `keepMonitorOnSuccess()` method to only store failed monito
 
 ```php
 use Illuminate\Contracts\Queue\ShouldQueue;
-use romanzipp\QueueMonitor\Traits\IsMonitored;
+use Traewelling\QueueMonitor\Traits\IsMonitored;
 
 class FrequentSucceedingJob implements ShouldQueue
 {
@@ -220,7 +221,7 @@ class FrequentSucceedingJob implements ShouldQueue
 ### Retrieve processed Jobs
 
 ```php
-use romanzipp\QueueMonitor\Models\Monitor;
+use Traewelling\QueueMonitor\Models\Monitor;
 
 $job = Monitor::query()->first();
 
@@ -248,7 +249,7 @@ $job->getBasename();
 ### Model Scopes
 
 ```php
-use romanzipp\QueueMonitor\Models\Monitor;
+use Traewelling\QueueMonitor\Models\Monitor;
 
 // Filter by Status
 Monitor::failed();
@@ -262,10 +263,6 @@ Monitor::today();
 Monitor::today()->failed();
 ```
 
-## Upgrading
-
-- [Upgrade from 1.0 to 2.0](https://github.com/romanzipp/Laravel-Queue-Monitor/releases/tag/2.0.0)
-
 ----
 
-This package was inspired by gilbitron's [laravel-queue-monitor](https://github.com/gilbitron/laravel-queue-monitor) which is not maintained anymore.
+This package was inspired by gilbitron's [laravel-queue-monitor](https://github.com/gilbitron/laravel-queue-monitor) which is not maintained anymore and romanzipp's [Laravel-Queue-Monitor](https://github.com/romanzipp/Laravel-Queue-Monitor) with a few custom additions.

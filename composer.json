@@ -1,5 +1,5 @@
 {
-    "name": "romanzipp/laravel-queue-monitor",
+    "name": "trwl/laravel-queue-monitor",
     "description": "Queue Monitoring for Laravel Database Job Queue",
     "type": "library",
     "license": "MIT",
@@ -8,6 +8,16 @@
             "name": "romanzipp",
             "email": "ich@ich.wtf",
             "homepage": "https://ich.wtf"
+        },
+        {
+            "name": "Jannik",
+            "email": "jannik@outlook.com",
+            "homepage": "https://traewelling.de"
+        },
+        {
+            "name": "The Träwelling Team",
+            "email": "support@traewelling.de",
+            "homepage": "https://traewelling.de"
         }
     ],
     "require": {
@@ -30,12 +40,12 @@
     },
     "autoload": {
         "psr-4": {
-            "romanzipp\\QueueMonitor\\": "src"
+            "Traewelling\\QueueMonitor\\": "src"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "romanzipp\\QueueMonitor\\Tests\\": "tests"
+            "Traewelling\\QueueMonitor\\Tests\\": "tests"
         }
     },
     "scripts": {
@@ -44,7 +54,7 @@
     "extra": {
         "laravel": {
             "providers": [
-                "romanzipp\\QueueMonitor\\Providers\\QueueMonitorProvider"
+                "Traewelling\\QueueMonitor\\Providers\\QueueMonitorProvider"
             ]
         }
     },

@@ -1,10 +1,10 @@
 <?php
 
-namespace romanzipp\QueueMonitor\Controllers;
+namespace Traewelling\QueueMonitor\Controllers;
 
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
-use romanzipp\QueueMonitor\Models\Monitor;
+use Traewelling\QueueMonitor\Models\Monitor;
 
 class DeleteMonitorController
 {
