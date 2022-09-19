@@ -30,7 +30,6 @@ final class Metric
         $this->value = $value;
         $this->previousValue = $previousValue;
         $this->format = $format;
-        $this->rendered = $this->format($this->value);
     }
 
     public function hasChanged(): bool
